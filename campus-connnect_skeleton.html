@@ -1,0 +1,128 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Attendance System</title>
+</head>
+<body>
+  <!-- Page wrapper -->
+  <div id="page">
+
+    <!-- Header -->
+    <div id="header">
+      <h1>Student Attendance System</h1>
+      <div id="subtitle">Daily attendance tracker (CSV + Python backend)</div>
+    </div>
+
+    <!-- Navigation / Quick links -->
+    <div id="nav">
+      <!-- These could be links to routes on your backend -->
+      <div><a href="#mark-attendance">Mark Attendance</a></div>
+      <div><a href="#view-records">View Records</a></div>
+      <div><a href="#percentages">Attendance Percentages</a></div>
+      <div><a href="#graph">Show Graph</a></div>
+    </div>
+
+    <!-- Main content area -->
+    <div id="main">
+
+      <!-- Mark Attendance form -->
+      <div id="mark-attendance" role="region" aria-label="Mark Attendance">
+        <h2>Mark Attendance</h2>
+        <!-- Use method/action that your backend expects (example POST /add) -->
+        <form method="post" action="/add-attendance">
+          <div>
+            <label for="name">Student Name:</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div>
+            <label for="date">Date (DD-MM-YYYY):</label>
+            <input id="date" name="date" type="text" placeholder="Leave empty for today" />
+          </div>
+          <div>
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+              <option value="Present">Present</option>
+              <option value="Absent">Absent</option>
+            </select>
+          </div>
+          <div>
+            <button type="submit">Record Attendance</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- View raw records -->
+      <div id="view-records" role="region" aria-label="View Records">
+        <h2>View Records</h2>
+        <!-- Backend should render rows inside this table -->
+        <div id="records-table">
+          <table border="1" cellpadding="4" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example row (backend should populate real rows) -->
+              <!-- <tr><td>Alice</td><td>25-10-2025</td><td>Present</td></tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Attendance percentages -->
+      <div id="percentages" role="region" aria-label="Attendance Percentages">
+        <h2>Attendance Percentages</h2>
+        <!-- Backend can render a list or table of percentages here -->
+        <div id="percentages-list">
+          <!-- Example placeholder -->
+          <!-- <div>Alice — 92.31%</div> -->
+        </div>
+      </div>
+
+      <!-- Graph (pie) for a specific student -->
+      <div id="graph" role="region" aria-label="Attendance Graph">
+        <h2>Show Attendance Graph</h2>
+
+        <!-- Option 1: form to request graph for a student (server returns an image) -->
+        <form method="get" action="/graph">
+          <div>
+            <label for="student-for-graph">Student Name:</label>
+            <input id="student-for-graph" name="name" type="text" required />
+          </div>
+          <div>
+            <button type="submit">Show Pie Chart</button>
+          </div>
+        </form>
+
+        <!-- Option 2: placeholder where the server can embed the generated chart image -->
+        <div id="chart-placeholder">
+          <!-- Example: the backend might return <img src="/generated-charts/alice.png" alt="Attendance chart for Alice" /> -->
+        </div>
+      </div>
+
+    </div> <!-- end main -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div>© Student Attendance System</div>
+      <div>Data stored in attendance.csv</div>
+    </div>
+
+    <h1>Student Attendance & Support Portal</h1>
+    <p>Select an option below:</p>
+
+    <div><a href="complaint.html">Student Complaint</a></div>
+    <div><a href="request.html">Student Request</a></div>
+    <div><a href="feedback.html">Student Feedback</a></div >
+
+  <hr style="margin:40px;">
+
+  </div> <!-- end page -->
+</body>
+</html>
