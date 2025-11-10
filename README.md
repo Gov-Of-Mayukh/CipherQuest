@@ -31,4 +31,5 @@ Clone the repository:
 ```bash
 git clone https://github.com/Gov-Of-Mayukh/CipherQuest.git
 cd CipherQuest
+pip install -r requirements.txt
 python menu.py
